@@ -1,0 +1,35 @@
+<!-- extiende el contendio base.html -->
+{% extends 'base.html' %}
+
+<!-- cargando los ficheros estaticos -->
+{% load static %}
+
+<!--cargando el title de about.html -->
+
+{% block title %} about {% endblock %}
+
+<!-- Cargando el contenido de home.html -->
+{% block content %}
+
+  <!-- Cabecera -->
+  <section class="page-section about-heading">
+    <div class="container">
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{% static 'img/aboutImg.jpg' %}" alt="">
+      <div class="about-heading-content">
+        <div class="row">
+          <div class="col-xl-9 col-lg-10 mx-auto">
+            <div class="bg-faded rounded p-5">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">AmiPet</span>
+                <span class="section-heading-lower">Nuestra historia</span>
+              </h2>
+              <p>La historia de nuestro compromiso con el cuidado animal comenzó en [año de fundación], cuando decidimos dedicarnos a la protección y el bienestar de los animales necesitados. Desde entonces, hemos trabajado incansablemente para ofrecer un refugio seguro y amoroso a los animales en busca de un hogar.</p>
+              <p>Cada paso que damos en esta misión es un testimonio de nuestro profundo amor y cuidado por los animales que rescatamos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

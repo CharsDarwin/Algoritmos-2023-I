@@ -1,0 +1,44 @@
+
+<!-- extiende el contendio base.html -->
+{% extends 'base.html' %}
+
+<!-- cargando los ficheros estaticos -->
+{% load static %}
+
+<!--cargando el title de home.html -->
+
+{% block title %} servicios {% endblock %}
+
+<!-- Cargando el contenido de home.html -->
+{% block content %}
+
+<!-- reversed invierte la lista  -->
+
+{% for service in services reversed %}
+
+  <section class="page-section">
+    <div class="container">
+      <div class="product-item">
+        <div class="product-item-title d-flex">
+          <div class="bg-faded p-5 d-flex mr-auto rounded">
+            <h2 class="section-heading mb-0">
+              <!-- Acediendo a la base de datos para mostrar los servicios -->
+              <span class="section-heading-upper"> {{service.subtitle}} </span>
+              <span class="section-heading-lower"> {{service.title}} </span>
+            </h2>
+          </div>
+        </div>
+        <!-- Para la imagen se pide el valor img y  que genere su url con su metodo url -->
+        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{service.image.url}}" alt="">
+        <div class="product-item-description d-flex ml-auto">
+          <div class="bg-faded p-5 rounded">
+            <p class="mb-0"> {{service.content}} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endfor %}
+{% endblock %}
+

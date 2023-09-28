@@ -1,0 +1,43 @@
+<!-- extiende el contendio base.html -->
+{% extends 'base.html' %}
+
+<!-- cargando los ficheros estaticos -->
+{% load static %}
+
+<!--cargando el title de blog.html -->
+
+{% block title %} blog {% endblock %}
+
+<!-- Cargando el contenido de home.html -->
+{% block content %}
+
+  {% for post in posts %}
+
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-innerv text-center rounded">
+              <h2 class="section-heading mb-5">
+                <!-- date:"SHORT_DATE_FORMAT" (filtro para poder mostrar la fecha en cierto formato) -->
+                <span class="section-heading-upper"> {{post.published|date:"SHORT_DATE_FORMAT"}} </span>
+                <span class="section-heading-lower"> {{post.title}} </span>
+              </h2>
+              <p class="mb-0">
+                <img class="mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src=" {{ post.image.url }} " alt="imgen perro">
+              </p>
+              <!--|linebreaks (templeu tag para que respete los saltos de linea del contenido)  -->
+              <p class="mb-0 mbt"> {{post.content|linebreaks}} </p>
+              <p class="mb-0 mbt">
+                <span class="section-heading-under"> publicado por <em><b> {{post.author}} </b></em> </span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  {% endfor %}
+
+{% endblock %}
